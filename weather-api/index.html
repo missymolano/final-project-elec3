@@ -15,7 +15,14 @@
           <h1>Weather App</h1>
           <p class="sub">Type a city name and get current weather plus a 5-day glance.</p>
         </div>
+
         <div class="pill">Powered by OpenWeather</div>
+
+        <!-- ✅ Dark Mode Toggle -->
+        <button id="themeToggle" class="icon-btn" type="button" aria-label="Toggle dark mode">
+          <span class="icon">🌙</span>
+          <span class="icon-label">Dark</span>
+        </button>
       </header>
 
       <div class="input-row">
@@ -82,6 +89,16 @@
         </div>
         <div id="forecastGrid" class="forecast-grid"></div>
       </div>
+
+      <!-- FOOTER CREDITS -->
+      <footer class="footer">
+        <p>
+          © <span id="year"></span> Weather App • Powered by
+          <a href="https://openweathermap.org/api" target="_blank" rel="noopener noreferrer">
+            OpenWeather API
+          </a>
+        </p>
+      </footer>
     </section>
   </main>
 
