@@ -1,4 +1,4 @@
-const API_KEY = "457de22ee06cb1b7725837eace9e46c7";
+const API_KEY = "YOUR_API_KEY";
 
 // APIs (BONUS: multiple API calls combined)
 const GEO_URL = "https://api.openweathermap.org/geo/1.0/direct";
@@ -14,6 +14,10 @@ const placeSelect = document.getElementById("placeSelect");
 const recentList = document.getElementById("recentList");
 const clearHistoryBtn = document.getElementById("clearHistory");
 
+// ✅ Theme Toggle DOM
+const THEME_KEY = "weatherTheme";
+const themeToggle = document.getElementById("themeToggle");
+
 const weatherBox = document.getElementById("weatherResult");
 const cityNameEl = document.getElementById("cityName");
 const countryEl = document.getElementById("country");
@@ -28,6 +32,40 @@ const forecastGrid = document.getElementById("forecastGrid");
 
 // State
 let recentSearches = [];
+
+// ✅ Theme functions
+function applyTheme(theme) {
+  const root = document.documentElement;
+
+  if (theme === "dark") root.setAttribute("data-theme", "dark");
+  else root.removeAttribute("data-theme");
+
+  if (themeToggle) {
+    const isDark = theme === "dark";
+    themeToggle.querySelector(".icon").textContent = isDark ? "☀️" : "🌙";
+    themeToggle.querySelector(".icon-label").textContent = isDark ? "Light" : "Dark";
+    themeToggle.setAttribute("aria-pressed", String(isDark));
+  }
+}
+
+function initTheme() {
+  const saved = localStorage.getItem(THEME_KEY);
+  const prefersDark =
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+  const theme = saved || (prefersDark ? "dark" : "light");
+  applyTheme(theme);
+}
+
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+  const next = isDark ? "light" : "dark";
+  localStorage.setItem(THEME_KEY, next);
+  applyTheme(next);
+}
+
+if (themeToggle) themeToggle.addEventListener("click", toggleTheme);
 
 // UI helpers
 function setLoading(isLoading, msg = "") {
@@ -331,5 +369,6 @@ clearHistoryBtn.addEventListener("click", () => {
   renderRecent();
 });
 
-// Initialize
+// ✅ Initialize
+initTheme();
 loadRecent();
