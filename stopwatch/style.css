@@ -1,0 +1,220 @@
+:root {
+  --bg-primary: #0a0e1a;
+  --bg-secondary: rgba(20, 25, 45, 0.85);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --accent-blue: #87ceeb;
+  --accent-green: #51cf66;
+  --accent-yellow: #ffd43b;
+  --accent-red: #ff6b6b;
+  --shadow-lg: 0 20px 60px rgba(0, 0, 0, 0.4);
+  --border-radius: 20px;
+  --transition-quick: 0.1s ease;
+  --transition-smooth: 0.15s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+  background:
+    linear-gradient(135deg, #87ceeb 0%, #add8e6 25%, #b0e0e6 50%, #89cff0 75%, #87ceeb 100%);
+  background-size: 400% 400%;
+  background-attachment: fixed;
+  animation: dynamicBg 15s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+@keyframes dynamicBg {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.app {
+  padding: 20px;
+  width: 100%;
+}
+
+.stopwatch-card {
+  width: min(550px, 100%);
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 28px;
+  margin: 0 auto;
+}
+
+/* Header */
+.stopwatch-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.stopwatch-header h1 {
+  margin: 0 0 8px 0;
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+}
+
+.stopwatch-subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* Display */
+.display-container {
+  margin: 24px 0;
+}
+
+.time-display {
+  padding: 32px 24px;
+  border-radius: 16px;
+  border: 1px solid var(--border-color);
+  background: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+  transition: var(--transition-smooth);
+}
+
+.time-display.running {
+  background: rgba(81, 207, 102, 0.1);
+  border-color: rgba(81, 207, 102, 0.3);
+  box-shadow: 0 0 20px rgba(81, 207, 102, 0.2);
+}
+
+/* Controls */
+.button-controls {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.control-btn {
+  appearance: none;
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  padding: 14px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.08);
+  cursor: pointer;
+  transition: background var(--transition-smooth), transform var(--transition-quick), border-color var(--transition-smooth);
+  user-select: none;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-icon {
+  font-size: 24px;
+  line-height: 1;
+}
+
+.btn-text {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.control-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.control-btn:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.control-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.btn-start {
+  background: rgba(81, 207, 102, 0.15);
+  border-color: rgba(81, 207, 102, 0.3);
+}
+
+.btn-start:hover:not(:disabled) {
+  background: rgba(81, 207, 102, 0.25);
+  border-color: rgba(81, 207, 102, 0.5);
+}
+
+.btn-start.paused {
+  background: rgba(255, 212, 59, 0.15);
+  border-color: rgba(255, 212, 59, 0.3);
+}
+
+.btn-start.paused:hover:not(:disabled) {
+  background: rgba(255, 212, 59, 0.25);
+  border-color: rgba(255, 212, 59, 0.5);
+}
+
+.btn-reset {
+  background: rgba(255, 107, 107, 0.12);
+  border-color: rgba(255, 107, 107, 0.3);
+}
+
+.btn-reset:hover:not(:disabled) {
+  background: rgba(255, 107, 107, 0.22);
+  border-color: rgba(255, 107, 107, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .stopwatch-card {
+    padding: 20px;
+  }
+
+  .stopwatch-header h1 {
+    font-size: 28px;
+  }
+
+  .time-display {
+    font-size: 42px;
+    padding: 24px 16px;
+  }
+
+  .button-controls {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .control-btn {
+    flex-direction: row;
+    justify-content: center;
+  }
+}

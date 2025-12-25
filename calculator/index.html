@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="calculator-card">
+        <header class="calculator-header">
+          <h1>Calculator</h1>
+          <p class="calculator-subtitle">Your simple and elegant calculation tool</p>
+        </header>
+
+        <div class="calculator-display" aria-live="polite" role="status" aria-atomic="true">
+          <div class="display-expression" id="expression"></div>
+          <div class="display-result" id="result">0</div>
+        </div>
+
+        <div class="button-grid" id="keys">
+          <button class="btn btn--function" data-action="clear" aria-label="Clear All">AC</button>
+          <button class="btn btn--function" data-action="backspace" aria-label="Backspace">⌫</button>
+          <button class="btn btn--function" data-action="sign" aria-label="Toggle Sign">±</button>
+          <button class="btn btn--operator" data-op="/" aria-label="Divide">÷</button>
+
+          <button class="btn" data-digit="7">7</button>
+          <button class="btn" data-digit="8">8</button>
+          <button class="btn" data-digit="9">9</button>
+          <button class="btn btn--operator" data-op="*" aria-label="Multiply">×</button>
+
+          <button class="btn" data-digit="4">4</button>
+          <button class="btn" data-digit="5">5</button>
+          <button class="btn" data-digit="6">6</button>
+          <button class="btn btn--operator" data-op="-" aria-label="Subtract">−</button>
+
+          <button class="btn" data-digit="1">1</button>
+          <button class="btn" data-digit="2">2</button>
+          <button class="btn" data-digit="3">3</button>
+          <button class="btn btn--operator" data-op="+" aria-label="Add">+</button>
+
+          <button class="btn btn--wide" data-digit="0">0</button>
+          <button class="btn" data-action="dot" aria-label="Decimal">.</button>
+          <button class="btn btn--equals" data-action="equals" aria-label="Equals">=</button>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

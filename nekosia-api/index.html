@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nekosia Catgirl Gallery</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="header-content">
+        <h1>🐱 Nekosia Gallery</h1>
+        <p>Discover random catgirl artwork from Nekosia API</p>
+      </div>
+      <div class="stats-bar">
+        <div class="stat-item">
+          <span class="stat-value" id="totalLoaded">0</span>
+          <span class="stat-label">Loaded</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="favorites">0</span>
+          <span class="stat-label">Favorites</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="controls">
+      <button id="btnFetch" class="btn btn-primary">
+        <span class="btn-icon">🎲</span>
+        Get Random
+      </button>
+      <button id="btnDownload" class="btn btn-secondary" disabled>
+        <span class="btn-icon">💾</span>
+        Download
+      </button>
+      <button id="btnFavorite" class="btn btn-secondary" disabled>
+        <span class="btn-icon">❤️</span>
+        Favorite
+      </button>
+      <button id="btnClear" class="btn btn-danger">
+        <span class="btn-icon">🗑️</span>
+        Clear All
+      </button>
+      <button id="btnTheme" class="btn btn-secondary theme-toggle" type="button">
+        <span class="btn-icon" id="themeIcon">🌙</span>
+        <span id="themeLabel">Dark</span>
+      </button>
+      <span id="status" class="status">Ready to fetch!</span>
+    </section>
+
+    <section class="main-content">
+      <div class="card main-card">
+        <div class="media">
+          <img id="img" alt="Catgirl image" />
+          <div class="placeholder" id="placeholder">
+            <span class="placeholder-icon">🎨</span>
+            <p>Click "Get Random" to start</p>
+          </div>
+        </div>
+
+        <div class="meta">
+          <div class="meta-row">
+            <span class="label">Image URL:</span>
+            <a id="source" href="#" target="_blank" rel="noreferrer">—</a>
+          </div>
+          <div class="meta-row">
+            <span class="label">Artist:</span>
+            <span id="artist">—</span>
+          </div>
+          <div class="meta-row">
+            <span class="label">Source:</span>
+            <a id="sourceLink" href="#" target="_blank" rel="noreferrer">—</a>
+          </div>
+        </div>
+      </div>
+
+      <aside class="sidebar">
+        <div class="card">
+          <h3 class="section-title">🌟 Favorites</h3>
+          <div id="favoritesList" class="favorites-list">
+            <p class="empty-state">No favorites yet. Click the heart to save!</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3 class="section-title">📜 Recent History</h3>
+          <div id="historyList" class="history-list">
+            <p class="empty-state">No history yet.</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <small>API: <code>https://api.nekosia.cat</code></small>
+        <small>Press <kbd>Space</kbd> to fetch random image</small>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

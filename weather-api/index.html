@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Weather App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="card">
+      <header class="header">
+        <div class="header-text">
+          <p class="eyebrow">Live Weather</p>
+          <h1>Weather App</h1>
+          <p class="sub">Type a city name and get current weather plus a 5-day glance.</p>
+        </div>
+        <div class="pill">Powered by OpenWeather</div>
+      </header>
+
+      <div class="input-row">
+        <input
+          type="text"
+          id="cityInput"
+          placeholder="Enter a city or province name"
+          autocomplete="off"
+        />
+        <button id="searchBtn" class="btn btn-primary">Search</button>
+      </div>
+
+      <select id="placeSelect" class="hidden" aria-label="Choose location"></select>
+
+      <div class="status-row">
+        <p id="status" class="status" aria-live="polite">Ready</p>
+        <div id="errorBox" class="error-box hidden" role="alert"></div>
+      </div>
+
+      <div class="recent">
+        <div class="recent-header">
+          <span class="label">Recent searches</span>
+          <button id="clearHistory" class="link-btn" type="button">Clear</button>
+        </div>
+        <div id="recentList" class="pill-row">
+          <span class="muted">No recent searches yet.</span>
+        </div>
+      </div>
+
+      <div id="weatherResult" class="weather hidden">
+        <div class="weather-main">
+          <div>
+            <h2 id="cityName"></h2>
+            <p id="country"></p>
+            <p id="description" class="description"></p>
+          </div>
+
+          <div class="temp-block">
+            <span id="temp" class="temp"></span>
+            <span class="temp-unit">°C</span>
+          </div>
+        </div>
+
+        <div class="weather-extra">
+          <div class="weather-item">
+            <span class="label">Feels like</span>
+            <span id="feelsLike"></span> °C
+          </div>
+          <div class="weather-item">
+            <span class="label">Humidity</span>
+            <span id="humidity"></span> %
+          </div>
+          <div class="weather-item">
+            <span class="label">Wind</span>
+            <span id="wind"></span> m/s
+          </div>
+        </div>
+      </div>
+
+      <div id="forecastBox" class="forecast hidden">
+        <div class="forecast-header">
+          <h3 class="forecast-title">5-Day Forecast</h3>
+          <span class="pill pill-soft">Daily noon snapshot</span>
+        </div>
+        <div id="forecastGrid" class="forecast-grid"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
