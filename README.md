@@ -62,7 +62,7 @@ This repository contains four mini web applications:
 ### 1. Clone or Download the Repository
 
 ```
-git clone https://github.com/your-username/final-project-elec3.git
+git clone https://github.com/missymolano/final-project-elec3.git
 ```
 Or download the ZIP and extract it.
 
